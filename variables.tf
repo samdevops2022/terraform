@@ -6,4 +6,5 @@ variable "zone" {
 variable "environ" {}
 variable "instance_type" {}
 variable "pub_key_loc" {}
-variable "start_script" {}
+variable "priv_key_loc" {}
+#variable "start_script" {}
