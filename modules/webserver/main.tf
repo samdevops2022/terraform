@@ -54,5 +54,5 @@ resource "aws_instance" "app-server" {
     tags = {
       "Name" = "${var.environ}-app-server"
     }
-    user_data = file("server_script.sh")
+    user_data = file("./server_script.sh")
 }
