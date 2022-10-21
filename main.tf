@@ -14,7 +14,7 @@ module "app-subnet" {
     def_rtb_id = aws_vpc.app_vpc.default_route_table_id
 }
 
-module "app-server" {
+module "webserver" {
     source = "./modules/webserver"
     image_name = var.image_name
     vpc_id = aws_vpc.app_vpc.id
