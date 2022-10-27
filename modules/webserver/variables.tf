@@ -5,3 +5,6 @@ variable "pub_key_loc" {}
 variable "zone" {}
 variable "subnet_id" {}
 variable "instance_type" {}
+variable "instance_names"{
+    type = list(string)
+}

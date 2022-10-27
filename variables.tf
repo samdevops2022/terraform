@@ -9,3 +9,6 @@ variable "priv_key_loc" {}
 variable "subnet_block" {}
 #variable "start_script" {}
 variable "image_name" {}
+variable "instance_names"{
+    type = list(string)
+}

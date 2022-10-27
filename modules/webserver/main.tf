@@ -43,16 +43,16 @@ resource "aws_key_pair" "app-sshkey" {
     public_key = file(var.pub_key_loc)
 }
 
-resource "aws_instance" "app-server" {
+resource "aws_instance" "ci-nexus" {
     ami = data.aws_ami.amzaon_linux_img_lts.id
     instance_type = var.instance_type
     subnet_id = var.subnet_id
-    vpc_security_group_ids = ["aws_security_group.app-sg.id"]
+    vpc_security_group_ids = [aws_security_group.app-sg.id]
     associate_public_ip_address = true
     key_name = aws_key_pair.app-sshkey.key_name
-    
+    count = length(var.instance_names)
     tags = {
-      "Name" = "${var.environ}-app-server"
+      "Name" = "${var.environ}-${var.instance_names[count.index]}"
     }
-    user_data = file("./server_script.sh")
+#    user_data = file("./server_script.sh")
 }

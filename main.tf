@@ -23,4 +23,5 @@ module "webserver" {
     zone = var.zone
     subnet_id = module.app-subnet.subnet.id
     instance_type = var.instance_type
+    instance_names = var.instance_names
 }
