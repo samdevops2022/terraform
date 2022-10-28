@@ -10,7 +10,7 @@ resource "aws_security_group" "app-sg" {
 
     ingress {
         from_port = 8080
-        to_port = 8080
+        to_port = 8081
         protocol = "tcp" 
         cidr_blocks = ["0.0.0.0/0"]        
     }
@@ -36,6 +36,10 @@ data "aws_ami" "amzaon_linux_img_lts" {
     filter {
       name = "virtualization-type"
       values = ["hvm"]
+    }
+    filter {
+      name = "architecture"
+      values = [var.image_arch]
     }
 }
 resource "aws_key_pair" "app-sshkey" {

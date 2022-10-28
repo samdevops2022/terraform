@@ -24,4 +24,5 @@ module "webserver" {
     subnet_id = module.app-subnet.subnet.id
     instance_type = var.instance_type
     instance_names = var.instance_names
+    image_arch = var.image_arch
 }
